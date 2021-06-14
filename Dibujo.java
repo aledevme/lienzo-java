@@ -16,9 +16,8 @@ public class Dibujo extends Frame {
 
    private List listaColores;
 
-   //nuevos
-   private List listaTamanoLetra;
-   private List listaTipoLetra;
+   private List listaSizeLetra;
+   private List listatiposDeLetra;
 
    private Button deshacer;
 
@@ -139,12 +138,12 @@ public class Dibujo extends Frame {
                 System.out.println("color");
 				informacion.remove("Color");
 				informacion.put("Color", selec);				
-			}else if (a == listaTamanoLetra){
+			}else if (a == listaSizeLetra){
                 System.out.println("aqui");
 			    informacion.remove("tamanoLetra");
                 informacion.put("tamanoLetra", selec);
             }
-			else if(a == listaTipoLetra){
+			else if(a == listatiposDeLetra){
                 informacion.remove("tipoLetra");
                 informacion.put("tipoLetra", selec);
             }
@@ -263,22 +262,22 @@ public class Dibujo extends Frame {
       listaColores.add("Marrón");
 
       //lista tamaños de letra
-      listaTamanoLetra = new List();
-       listaTamanoLetra.setMultipleMode(false);
-       listaTamanoLetra.add("10");
-       listaTamanoLetra.add("12");
-       listaTamanoLetra.add("14");
-       listaTamanoLetra.add("16");
-       listaTamanoLetra.add("18");
-       listaTamanoLetra.add("20");
-       listaTamanoLetra.add("22");
-       listaTamanoLetra.add("26");
+       listaSizeLetra = new List();
+       listaSizeLetra.setMultipleMode(false);
+       listaSizeLetra.add("10");
+       listaSizeLetra.add("12");
+       listaSizeLetra.add("14");
+       listaSizeLetra.add("16");
+       listaSizeLetra.add("18");
+       listaSizeLetra.add("20");
+       listaSizeLetra.add("22");
+       listaSizeLetra.add("26");
 
       //lista tipos de letra
-       listaTipoLetra = new List();
-       listaTipoLetra.setMultipleMode(false);
-       listaTipoLetra.add("Ayuthaya");
-       listaTipoLetra.add("Big Caslon");
+       listatiposDeLetra = new List();
+       listatiposDeLetra.setMultipleMode(false);
+       listatiposDeLetra.add("Ayuthaya");
+       listatiposDeLetra.add("Big Caslon");
 
       //Checkbox
       relleno = new Checkbox("Relleno");
@@ -301,11 +300,11 @@ public class Dibujo extends Frame {
       //añadiendo lista de tamaño de letra al frame
       panelTamanosLetras.setLayout(new FlowLayout());
       panelTamanosLetras.add(new Label("Tamaño letra"));
-       panelTamanosLetras.add(listaTamanoLetra);
+       panelTamanosLetras.add(listaSizeLetra);
 
        panelTipoLetras.setLayout(new FlowLayout());
        panelTipoLetras.add(new Label("Tipos de letra"));
-       panelTipoLetras.add(listaTipoLetra);
+       panelTipoLetras.add(listatiposDeLetra);
       
       panelOpciones.setLayout(new GridLayout(8,1));
       panelOpciones.add(panelFiguras);
@@ -321,8 +320,8 @@ public class Dibujo extends Frame {
       TrataEventosItem tei = new TrataEventosItem();
       listaFiguras.addItemListener(tei);
       listaColores.addItemListener(tei);
-      listaTamanoLetra.addItemListener(tei);
-      listaTipoLetra.addItemListener(tei);
+      listaSizeLetra.addItemListener(tei);
+      listatiposDeLetra.addItemListener(tei);
       relleno.addItemListener(tei);
        rehacer.addMouseListener(new TrataEventosRatonBotonRehacer());
        deshacer.addMouseListener(new TrataEventosRatonBotonBoton());
